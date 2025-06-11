@@ -6,16 +6,17 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fdf8f4;
+  background-color: #f7ede4;
   color: #1a1a1a;
 }
 
 .logo {
   font-style: italic;
   font-family: "Times New Roman", Times, serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: black;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .underline {
@@ -41,64 +42,122 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
+  padding: 1rem;
   background-color: rgb(247, 238, 223);
   border-bottom: 1px solid gray;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-links {
+  flex: 1;
+  min-width: 300px;
 }
 
 .nav_links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   list-style-type: none;
   font-family: "Times New Roman", Times, serif;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav_links li {
   font-size: 1.2rem;
-  text-decoration: none;
 }
 
 .nav_links li a {
   text-decoration: none;
   color: black;
+  font-weight: 500;
   transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-links li a:hover {
+  color: rgb(168, 134, 22);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.search-box {
+  position: relative;
+  min-width: 150px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.search-box input {
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border-radius: 20px;
+  border: none;
+  background-color: white;
+  width: 100%;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.2rem;
+}
+
+.icons a {
+  color: black;
 }
 
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 2rem;
+  padding: 0rem 3rem;
   background-color: rgb(247, 238, 223);
   flex-wrap: wrap;
 }
 
 .hero-text {
-  flex: 1 1 500px;
-  max-width: 600px;
+  flex: 1 1 300px;
+  min-width: 300px;
   font-family: "Times New Roman", Times, serif;
 }
 
 .hero-text h1 {
-  font-size: 5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: bold;
   line-height: 1.2;
   color: #222;
   font-family: "Times New Roman", Times, serif;
 }
 
+.hero-text span {
+  display: inline-block;
+}
+
 .hero-text p {
   font-size: 1rem;
-  color: #555;
+  color: black;
   margin-top: 1.5rem;
   line-height: 1.6;
+  width: 80%;
 }
 
 .cta-button {
   margin-top: 2rem;
   padding: 0.75rem 2rem;
   font-size: 1rem;
-  background-color: #b87b58;
+  background-color: #9d832c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -108,36 +167,35 @@ nav {
 }
 
 .cta-button:hover {
-  background-color: #a86540;
+  opacity: 80%;
 }
 
 .hero-image {
-  flex: 1 1 400px;
+  flex: 1 1 300px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .hero-image img {
-  max-width: 80%;
-  height: 75vh;
+  max-width: 100%;
+  height: auto;
+  max-height: 75vh;
   border-radius: 10px;
 }
 
-/* Already styled hero section, now add: */
 .brand-logos {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 2rem;
   text-align: center;
 }
 
 .brand-logos hr {
-  display: block;
   border: none;
   height: 1px;
   background-color: black;
   margin: 1rem auto;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .logos {
@@ -145,17 +203,57 @@ nav {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1rem 0;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .logos img {
-  height: 40px;
+  height: 30px;
+  max-width: 100px;
   object-fit: contain;
-  opacity: 0.8;
   transition: opacity 0.3s ease;
 }
 
-.logos img:hover {
-  opacity: 1;
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    min-width: auto;
+  }
+
+  .nav_links {
+    justify-content: space-around;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .cta-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-actions {
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .logos img {
+    height: 20px;
+  }
 }
