@@ -203,13 +203,13 @@ nav {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem;
 }
 
 .logos img {
   height: 30px;
-  max-width: 100px;
+  max-width: 150px;
   object-fit: contain;
   transition: opacity 0.3s ease;
 }
